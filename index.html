@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Resumen práctico de hábitos para dormir, comer, moverse, cuidar la casa y ahorrar sin desperdiciar.">
+  <meta name="theme-color" content="#F6F1E8">
+  <title>Hábitos — guía corta de salud y casa</title>
+  <style>
+    :root {
+      --paper: #F6F1E8;
+      --ink: #1F1A14;
+      --muted: #5C554C;
+      --line: #D4C9B6;
+      --accent: #2B5A3E;
+      --accent-hover: #1F4330;
+      --soft: #E7EFE8;
+      --card: #FFFbf5;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 1.0625rem/1.55 Georgia, "Palatino Linotype", Palatino, "Times New Roman", serif;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.5rem 0.8rem;
+      z-index: 20;
+    }
+    .skip:focus { top: 0.75rem; }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .bar {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem 1.25rem;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .mark {
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    nav { display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    nav a:hover { color: var(--ink); }
+    main { max-width: 44rem; margin: 0 auto; padding: 0 1.25rem 4rem; }
+    .hero { padding: 3.2rem 0 2.6rem; }
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.35rem, 8vw, 3.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+    }
+    .lede {
+      margin: 0 0 1.75rem;
+      color: var(--muted);
+      font-size: 1.2rem;
+      max-width: 34rem;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 0.7rem 1.2rem;
+      background: var(--accent);
+      color: #F6F1E8;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 1rem;
+    }
+    .cta:hover { background: var(--accent-hover); color: #F6F1E8; }
+    section { padding: 2.4rem 0; border-top: 1px solid var(--line); }
+    .kicker {
+      margin: 0 0 0.4rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.7rem, 4vw, 2.15rem);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .intro { margin: 0 0 1.4rem; color: var(--muted); }
+    .habit {
+      display: grid;
+      grid-template-columns: 4.25rem 1fr;
+      gap: 0.9rem 1rem;
+      align-items: start;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.05rem;
+      margin: 0 0 0.75rem;
+    }
+    .habit svg { width: 4.25rem; height: 4.25rem; display: block; }
+    .habit h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1.12rem;
+    }
+    .habit p { margin: 0; color: var(--muted); font-size: 1rem; }
+    .week {
+      display: grid;
+      gap: 0.6rem;
+    }
+    .day {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      background: var(--card);
+    }
+    .day strong { display: block; margin-bottom: 0.2rem; }
+    .day span { color: var(--muted); font-size: 0.98rem; }
+    .note {
+      margin: 1.1rem 0 0;
+      padding: 0.9rem 1rem;
+      background: var(--soft);
+      border-radius: 10px;
+      color: var(--ink);
+    }
+    footer {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 0 1.25rem 2.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    @media (max-width: 520px) {
+      .habit { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header>
+    <div class="bar">
+      <a class="mark" href="#inicio">Hábitos</a>
+      <nav aria-label="Secciones">
+        <a href="#dormir">Dormir</a>
+        <a href="#comer">Comer</a>
+        <a href="#dia">El día</a>
+        <a href="#casa">Casa</a>
+        <a href="#ahorrar">Ahorrar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <div class="hero" id="inicio">
+      <h1>Un resumen para vivir un poco mejor.</h1>
+      <p class="lede">Dormir, comer, moverse, cuidar la casa y no tirar energía ni comida. Lo esencial, en una página.</p>
+      <a class="cta" href="#dormir">Empezar por el sueño</a>
+    </div>
+
+    <section id="dormir" aria-labelledby="t-dormir">
+      <p class="kicker">Descanso</p>
+      <h2 id="t-dormir">Dormir bien</h2>
+      <p class="intro">El hábito que más rinde. Siete a nueve horas, a la misma hora, en un cuarto oscuro y fresco.</p>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <path d="M14 42h36M18 42v-8h28v8M22 34v-6c0-6 20-6 20 0v6" fill="none" stroke="#2B5A3E" stroke-width="2" stroke-linecap="round"/>
+          <path d="M44 18c-1 5-6 8-11 7 3-5 8-8 11-7z" fill="#2B5A3E"/>
+        </svg>
+        <div>
+          <h3>Horario fijo</h3>
+          <p>Acuéstate y levántate a la misma hora, también el fin de semana. El cuerpo se entrena solo.</p>
+        </div>
+      </article>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <rect x="18" y="16" width="20" height="32" rx="3" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+          <path d="M22 44h12M14 50h36" stroke="#2B5A3E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <h3>Sin pantallas en la cama</h3>
+          <p>Deja el móvil fuera. La última media hora: luz baja, papel o nada. El cerebro necesita esa señal de cierre.</p>
+        </div>
+      </article>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <circle cx="32" cy="28" r="10" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+          <path d="M32 18v-4M32 42v4M18 28h-4M50 28h-4" stroke="#2B5A3E" stroke-width="2" stroke-linecap="round"/>
+          <path d="M22 48h20" stroke="#2B5A3E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <h3>Cuarto oscuro y fresco</h3>
+          <p>Entre 16 y 19 °C, cortinas que tapen y silencio. Cafeína solo por la mañana.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="comer" aria-labelledby="t-comer">
+      <p class="kicker">Nutrición</p>
+      <h2 id="t-comer">Comer bien</h2>
+      <p class="intro">Tres comidas al día. Un tentempié solo si hace falta. El plato es más fácil que contar calorías.</p>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <circle cx="32" cy="32" r="16" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+          <path d="M32 16v32M32 32h16" stroke="#2B5A3E" stroke-width="2"/>
+        </svg>
+        <div>
+          <h3>El plato</h3>
+          <p>Mitad verdura, un cuarto de proteína (legumbre, pescado, huevo, carne magra) y un cuarto de cereal o tubérculo. Fruta de postre. Agua, no refrescos.</p>
+        </div>
+      </article>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <circle cx="22" cy="28" r="8" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+          <circle cx="42" cy="28" r="8" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+          <circle cx="32" cy="42" r="8" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+        </svg>
+        <div>
+          <h3>Cuántas veces</h3>
+          <p>Desayuno, comida y cena. Si pasas muchas horas, un yogur, un puñado de frutos secos o fruta. Evita picar todo el día.</p>
+        </div>
+      </article>
+
+      <h3 style="margin: 1.6rem 0 0.7rem; font-size: 1.2rem;">Semana tipo</h3>
+      <p class="intro">Repite este patrón y cambia la verdura de temporada. No hace falta un menú distinto cada día.</p>
+      <div class="week">
+        <div class="day"><strong>Lunes</strong><span>Avena con fruta · Garbanzos con verdura · Tortilla y ensalada</span></div>
+        <div class="day"><strong>Martes</strong><span>Yogur y tostada integral · Lentejas · Pescado blanco y brócoli</span></div>
+        <div class="day"><strong>Miércoles</strong><span>Huevos y tomate · Arroz con pollo y verdura · Crema de calabaza y queso fresco</span></div>
+        <div class="day"><strong>Jueves</strong><span>Avena · Pasta integral con atún y tomate · Merluza y judías verdes</span></div>
+        <div class="day"><strong>Viernes</strong><span>Fruta y frutos secos · Fabada ligera o alubias · Pescado y ensalada</span></div>
+        <div class="day"><strong>Sábado</strong><span>Tostada con aguacate · Guiso de verduras · Carne magra o legumbre</span></div>
+        <div class="day"><strong>Domingo</strong><span>Huevos · Restos de la semana + ensalada grande · Sopa y proteína</span></div>
+      </div>
+      <p class="note">Compra lo de la lista, cocina de más el domingo y congela raciones. Así no improvisas con ultraprocesados el jueves a las diez.</p>
+    </section>
+
+    <section id="dia" aria-labelledby="t-dia">
+      <p class="kicker">Rutina</p>
+      <h2 id="t-dia">Abrir el día y moverse</h2>
+      <p class="intro">La mañana marca el tono. El movimiento no exige un gimnasio: exige constancia.</p>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <circle cx="32" cy="24" r="8" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+          <path d="M20 20L16 16M44 20l4-4M32 12V8M18 48h28M26 36v12M38 36v12M32 32v4" stroke="#2B5A3E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <h3>Al despertar</h3>
+          <p>Luz natural (abre la persiana), un vaso de agua y diez minutos de movimiento: estirar, subir escaleras o un paseo corto. Luego un desayuno de verdad, no solo café.</p>
+        </div>
+      </article>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <circle cx="40" cy="18" r="5" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+          <path d="M38 24l-6 8 8 2 6 12M32 32l-8 6M26 50l6-12 8 4 6 8" fill="none" stroke="#2B5A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <h3>Deporte de la semana</h3>
+          <p>150 minutos de actividad moderada (caminar rápido, bici, nadar) y dos días de fuerza: sentadillas, flexiones en pared, gomas. Caminar después de comer ayuda a la glucosa.</p>
+        </div>
+      </article>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <path d="M16 44c8-16 24-16 32 0" fill="none" stroke="#2B5A3E" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="24" cy="28" r="3" fill="#2B5A3E"/>
+          <circle cx="40" cy="24" r="3" fill="#2B5A3E"/>
+        </svg>
+        <div>
+          <h3>Si trabajas sentado</h3>
+          <p>Levántate cada hora. Escaleras antes que ascensor. Una vuelta a la manzana cuenta.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="casa" aria-labelledby="t-casa">
+      <p class="kicker">Hogar</p>
+      <h2 id="t-casa">Hábitos saludables en casa</h2>
+      <p class="intro">El aire, la cocina y el descanso importan más que un armario de suplementos.</p>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <path d="M12 34L32 16l20 18M20 32v18h24V32" fill="none" stroke="#2B5A3E" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M28 50v-10h8v10" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+        </svg>
+        <div>
+          <h3>Ventilar</h3>
+          <p>Diez minutos al día, ventanas abiertas. En cocina, campana cuando fríes. Humedad alta: abre y no seques ropa en el dormitorio.</p>
+        </div>
+      </article>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <rect x="16" y="22" width="32" height="22" rx="3" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+          <path d="M16 30h32M24 48v-4M40 48v-4" stroke="#2B5A3E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <h3>Cocina limpia y simple</h3>
+          <p>Tabla y paño distintos para crudo y verdura. Jabón y vinagre cubren casi todo. Menos botes, menos residuo en el aire.</p>
+        </div>
+      </article>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <path d="M32 48c8-10 8-16 0-24-8 8-8 14 0 24z" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+          <path d="M32 18v6" stroke="#2B5A3E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <h3>Un rincón sin pantallas</h3>
+          <p>La cama es para dormir. El sofá no tiene que ser el comedor. Come en la mesa: comes más despacio y tiras menos.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="ahorrar" aria-labelledby="t-ahorrar">
+      <p class="kicker">Eficiencia</p>
+      <h2 id="t-ahorrar">Ahorrar en casa, sin desperdiciar</h2>
+      <p class="intro">Lo más caro suele ser lo que se tira: comida, agua caliente y luz encendida en vacío.</p>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <path d="M22 18h20l-2 22H24L22 18z" fill="none" stroke="#2B5A3E" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M28 46h8v4h-8z" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+        </svg>
+        <div>
+          <h3>Comida: lista y sobras</h3>
+          <p>Menú de la semana, compra con lista, cocina de más y congela. Lo que sobra de comida es cena. Revisa la nevera antes de tirar: olor y aspecto, no solo la fecha.</p>
+        </div>
+      </article>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <path d="M24 18c0 8 8 12 8 20 0 6-4 10-8 10s-8-4-8-10c0-8 8-12 8-20z" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+          <path d="M40 22v8M36 26h8" stroke="#2B5A3E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <h3>Agua y ducha</h3>
+          <p>Cinco a ocho minutos. Cierra el grifo al enjabonar. Un aireador en el caño baja el caudal sin que lo notes.</p>
+        </div>
+      </article>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <path d="M32 14c8 8 12 14 12 22a12 12 0 1 1-24 0c0-8 4-14 12-22z" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+          <path d="M32 44v6" stroke="#2B5A3E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <h3>Luz y electricidad</h3>
+          <p>Bombillas LED, apaga lo que no usas, aprovecha el día. Nevera: no la dejes abierta, no metas cazuelas calientes. Lavadora y lavavajillas: carga llena, 30–40 °C. Calefacción 19–21 °C; no ventiles a tope con ella puesta.</p>
+        </div>
+      </article>
+      <article class="habit">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#E7EFE8"/>
+          <rect x="18" y="22" width="28" height="24" rx="2" fill="none" stroke="#2B5A3E" stroke-width="2"/>
+          <path d="M18 30h28M26 22v-4h12v4" stroke="#2B5A3E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <h3>Hacer las cosas una vez</h3>
+          <p>Llena el lavavajillas del tirón. Cocina un guiso para dos días. Planchar o doblar al recoger, no “luego”. Menos pasos, menos energía, menos desorden.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Guía general, no consejo médico. Si tienes una enfermedad o dieta prescrita, sigue a tu profesional de salud.</p>
+  </footer>
+</body>
+</html>
